@@ -1,21 +1,20 @@
-var React = require('react');
-var PropTypes = React.PropTypes;
+import React, { PropTypes } from 'react'
 
-function UserDetails(user) {
+function UserDetails({ score, info }) {
     return (
         <div>
-            {!!user.score && <li className="list-group-item"><h3>Score: {user.score}</h3></li>}
+            {!!score && <li className="list-group-item"><h3>Score: {score}</h3></li>}
             <li className="list-group-item">
-                <img src={user.info.avatar_url} className="img-rounded img-responsive center-block"/>
+                <img src={info.avatar_url} className="img-rounded img-responsive center-block"/>
             </li>
-            {user.info.name && <li className="list-group-item">Name: {user.info.name}</li>}
-            <li className="list-group-item">Username: {user.info.name}</li>
-            {user.info.location && <li className="list-group-item">Location: {user.info.location}</li>}
-            {user.info.company && <li className="list-group-item">Company: {user.info.company}</li>}
-            <li className="list-group-item">Followers: {user.info.followers}</li>
-            <li className="list-group-item">Following: {user.info.following}</li>
-            <li className="list-group-item">Public Repos: {user.info.public_repos}</li>
-            {user.info.blog && <li className="list-group-item">Blog: <a href={user.info.blog}>{user.info.blog}</a></li>}
+            {info.name && <li className="list-group-item">Name: {info.name}</li>}
+            <li className="list-group-item">Username: {info.name}</li>
+            {info.location && <li className="list-group-item">Location: {info.location}</li>}
+            {info.company && <li className="list-group-item">Company: {info.company}</li>}
+            <li className="list-group-item">Followers: {info.followers}</li>
+            <li className="list-group-item">Following: {info.following}</li>
+            <li className="list-group-item">Public Repos: {info.public_repos}</li>
+            {info.blog && <li className="list-group-item">Blog: <a href={info.blog}>{info.blog}</a></li>}
         </div>
     )
 }
@@ -33,6 +32,6 @@ UserDetails.propTypes = {
         name: PropTypes.string,
         public_repos: PropTypes.number.isRequired,
     })
-}
+};
 
-module.exports = UserDetails;
+export default UserDetails
